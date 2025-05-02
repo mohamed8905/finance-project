@@ -24,17 +24,7 @@ with st.sidebar:
     default_index=0
 )
 
-@st.cache_data(ttl=86400)  # cache for 1 day
-def get_tesla_data():
-    tesla = yf.Ticker("TSLA")
-    return tesla.history(period="max")
-
-try:
-    tesla_data = get_tesla_data()
-except Exception as e:
-    st.error("Error fetching Tesla data. It may be a rate-limit issue. Try again later.")
-    st.stop()
-
+tesla_data = pd.read_csv("tesla_data.csv", parse_dates=["Date"])
 tesla_data.reset_index(inplace=True)
 
 url = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
