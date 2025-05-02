@@ -24,7 +24,7 @@ with st.sidebar:
     default_index=0
 )
 
-tesla_data = pd.read_csv("tesla_data.csv", parse_dates=["Date"])
+tesla_data = pd.read_csv("tesla_data.csv")
 tesla_data.reset_index(inplace=True)
 
 url = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
