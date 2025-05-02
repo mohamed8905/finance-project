@@ -24,9 +24,13 @@ with st.sidebar:
     default_index=0
 )
 
-tesla = yf.Ticker("TSLA")
-tesla_data = pd.DataFrame()
-tesla_data = tesla.history(period="max")
+try:
+    tesla = yf.Ticker("TSLA")
+    tesla_data = tesla.history(period="max")
+except Exception as e:
+    st.error("Failed to fetch Tesla data due to rate limit. Please try again later.")
+    st.stop()
+
 tesla_data.reset_index(inplace=True)
 
 url = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
