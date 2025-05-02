@@ -1,0 +1,10 @@
+streamlit
+streamlit-option-menu
+yfinance
+numpy
+pandas
+requests
+beautifulsoup4
+plotly
+matplotlib
+pymongo
