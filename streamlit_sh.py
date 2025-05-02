@@ -24,11 +24,15 @@ with st.sidebar:
     default_index=0
 )
 
-try:
+@st.cache_data(ttl=86400)  # cache for 1 day
+def get_tesla_data():
     tesla = yf.Ticker("TSLA")
-    tesla_data = tesla.history(period="max")
+    return tesla.history(period="max")
+
+try:
+    tesla_data = get_tesla_data()
 except Exception as e:
-    st.error("Failed to fetch Tesla data due to rate limit. Please try again later.")
+    st.error("Error fetching Tesla data. It may be a rate-limit issue. Try again later.")
     st.stop()
 
 tesla_data.reset_index(inplace=True)
