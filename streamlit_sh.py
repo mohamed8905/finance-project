@@ -236,9 +236,7 @@ elif selected == "Visual representations":
 
     make_graph(tesla_data, tesla_revenue, "TSLA")
 
-    apple = yf.Ticker("AAPL")
-    apple_data = pd.DataFrame()
-    apple_data = apple.history(period="max")
+    apple_data = pd.read_csv("apple_data.csv", parse_dates=["Date"])
     apple_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/AAPL/apple/revenue"
@@ -254,13 +252,10 @@ elif selected == "Visual representations":
 
     make_graph(apple_data, apple_revenue, "AAPL")
 
-    nvidia = yf.Ticker("NVDA")
-    nvidia_data = pd.DataFrame()
-    nvidia_data = nvidia.history(period="max")
+    nvidia_data = pd.read_csv("nvidia_data.csv", parse_dates=["Date"])
     nvidia_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/NVDA/nvidia/revenue"
-    headers = {"User-Agent": "Mozilla/5.0"}
     html_data = requests.get(url, headers=headers)
     soup = BeautifulSoup(html_data.content, "html.parser")
     html_data = pd.read_html(html_data.text)
@@ -272,13 +267,10 @@ elif selected == "Visual representations":
 
     make_graph(nvidia_data, nvidia_revenue, "NVDA")
 
-    amazon = yf.Ticker("AMZN")
-    amazon_data = pd.DataFrame()
-    amazon_data = amazon.history(period="max")
+    amazon_data = pd.read_csv("amazon_data.csv", parse_dates=["Date"])
     amazon_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/AMZN/amazon/revenue"
-    headers = {"User-Agent": "Mozilla/5.0"}
     html_data = requests.get(url, headers=headers)
     soup = BeautifulSoup(html_data.content, "html.parser")
     html_data = pd.read_html(html_data.text)
