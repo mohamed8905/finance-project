@@ -236,7 +236,7 @@ elif selected == "Visual representations":
 
     make_graph(tesla_data, tesla_revenue, "TSLA")
 
-    apple_data = pd.read_csv("apple_data.csv", parse_dates=["Date"])
+    apple_data = pd.read_csv("apple_data.csv")
     apple_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/AAPL/apple/revenue"
@@ -252,7 +252,7 @@ elif selected == "Visual representations":
 
     make_graph(apple_data, apple_revenue, "AAPL")
 
-    nvidia_data = pd.read_csv("nvidia_data.csv", parse_dates=["Date"])
+    nvidia_data = pd.read_csv("nvidia_data.csv")
     nvidia_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/NVDA/nvidia/revenue"
@@ -267,7 +267,7 @@ elif selected == "Visual representations":
 
     make_graph(nvidia_data, nvidia_revenue, "NVDA")
 
-    amazon_data = pd.read_csv("amazon_data.csv", parse_dates=["Date"])
+    amazon_data = pd.read_csv("amazon_data.csv")
     amazon_data.reset_index(inplace=True)
 
     url = "https://www.macrotrends.net/stocks/charts/AMZN/amazon/revenue"
