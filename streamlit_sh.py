@@ -31,8 +31,8 @@ url = "https://www.macrotrends.net/stocks/charts/TSLA/tesla/revenue"
 headers = {"User-Agent": "Mozilla/5.0"}
 html_data = requests.get(url, headers=headers)
 soup = BeautifulSoup(html_data.content, "html.parser")
-html_data = pd.read_html(html_data.text)
-tesla_revenue = html_data[1]
+html_data2 = pd.read_html(html_data.text)
+tesla_revenue = html_data2[1]
 tesla_revenue.columns = ["Date", "Revenue"]
 
 
@@ -334,3 +334,4 @@ elif selected == "Team Member":
 
     with st.echo():
         Authers
+
